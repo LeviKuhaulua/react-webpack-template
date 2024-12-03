@@ -17,13 +17,6 @@ This is a simple starter template for React and Webpack. I included code comment
 
 ## Implementations
 
-- React 
-- Webpack 
+- [React](https://react.dev/reference/react) 
+- [Webpack](https://webpack.js.org/guides/) 
 - Webpack Dev Server
-
-<br> 
-
-Documentation: 
-
-- [Webpack](https://webpack.js.org/guides/)
-- [React](https://react.dev/reference/react)
