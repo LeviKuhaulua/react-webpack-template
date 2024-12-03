@@ -1,0 +1,28 @@
+{
+  "name": "react-webpack-template",
+  "version": "1.0.0",
+  "description": "React Webpack Starter Template",
+  "main": "index.js",
+  "dependencies": {
+    "daemon": "^1.1.0",
+    "init": "^0.1.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "React",
+    "Webpack",
+    "Webpack-Dev-Server"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.97.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0",
+    "webpack-merge": "^6.0.1"
+  }
+}
