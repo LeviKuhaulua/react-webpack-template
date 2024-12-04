@@ -1,0 +1,7 @@
+button {
+    padding: 1rem;
+    font-weight: bold; 
+    border-radius: .25rem;
+    border: solid 2px rebeccapurple;
+    cursor: pointer; 
+}
