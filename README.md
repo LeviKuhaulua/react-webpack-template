@@ -5,6 +5,7 @@ Table of Contents:
 1. [Purpose](#purpose)
 2. [Folder Structure](#folder-structure)
 3. [Getting the Project Started](#getting-the-project-running)
+
 <br> 
 
 # Purpose 
@@ -64,3 +65,49 @@ This is a simple starter template for React and Webpack. I included code comment
 ## Production
 
 Once you are happy with your changes and finish your project, you can run `npm run build` in your terminal to create the production build for your project. 
+
+
+## Adding A New Page
+
+1. Create your file in src/pages
+    - It's important that you make sure the first letter in your file is **uppercased** so that you can render the page in your HTML file
+    - It's also important that you create your root for your React file, see example below: 
+
+```jsx
+import { createRoot } from 'react-dom/client';
+import * as React from 'react';
+// import your React components and styles here
+
+const MyPage = () => {
+    return(
+        <>
+            {/* Put Code Here */}
+        </>
+    );
+}
+
+// This is the important part
+const root = document.getElementById('root');
+createRoot(root).render(<Index />);
+```
+
+
+2. In the terminal you can run `npm run build` or `npx webpack`, basically this is to generate the code bundle for your new HTML page to reference
+3. In your public folder, create a new file with the name of your page, then add the HTML boiler plate code
+4. In the HTML file create a `<script src=>` tag and add the path to your generated bundle. See example below: 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My New Page</title>
+</head>
+<body> 
+    <noscript>Please enable JavaScript to view this website</noscript>
+    <div id="root"></div>
+    <script src="dist/mynewpage.js"></script>
+</body> 
+</html>
+```
