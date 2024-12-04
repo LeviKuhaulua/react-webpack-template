@@ -5,6 +5,7 @@ Table of Contents:
 1. [Purpose](#purpose)
 2. [Folder Structure](#folder-structure)
 3. [Getting the Project Started](#getting-the-project-running)
+4. [Notes](#notes)
 
 <br> 
 
@@ -57,9 +58,10 @@ This is a simple starter template for React and Webpack. I included code comment
 # Getting The Project Running
 
 1. Run `npm install` in the terminal to install all the project dependencies
-2. Start the development server by running `npm start` in the terminal
-3. Make your changes and do whatchu gotta do
-4. Save your changes and exit the dev server
+2. (only need to do this when you first clone/copy the repository) Run `npx webpack --config webpack.dev.js` to generate the dist folder 
+3. Start the development server by running `npm start` in the terminal
+4. Make your changes and do whatchu gotta do
+5. Save your changes and exit the dev server
 
 
 ## Production
@@ -111,3 +113,36 @@ createRoot(root).render(<Index />);
 </body> 
 </html>
 ```
+
+<br>
+
+# Notes
+
+## Folder Structure
+
+- The src folder is named that to keep your files tidy so that whenever you see that folder, you'll know that all your source code that you used to make the project is there. Each folder inside such as assets, components, pages, and styles help to seperate your source code into different sections to keep it organized and easier to manage / maintain
+
+- The public folder is there to indicate to you that this is the code that should be made available for people online to see. 
+
+
+## Git Ignore
+
+The reason why node_modules and the dist folders are ignored by git is so that it doesn't mess up other developers when they attempt to clone or fork your repository. This is because the node_modules folder will be created when somebody runs `npm install` and the dist folder will also be created when a user runs `npx webpack --config webpack.dev.js`
+
+
+## Webpack
+
+Here, I will talk about important options for configuring your Webpack file. 
+
+- why multiple files? The reason why I split up the files is to create different configurations for your different environments, instead of keeping it all in one file and having Webpack be confused as to what you're trying to do. Instead it will look at the base configuration file, then add in the extra options specified by either the `webpack.dev.js` or `webpack.prod.js` file. 
+
+- what is the deal with *publicPath* and why is it important? The publicPath option specifies to the browser or server where to find your generated files, so that it can properly serve them when it is referenced by your code. While there is an `auto` option, sometimes this can still lead to errors with finding where these assets or code bundles are generated. Here are some tips I learned about how to use the correct publicPath: 
+
+    - If we having the browser serve the generated content, then we need to use a relative path to the `dist` folder. Example: `./dist` (this is relative to the HTML page (I think))
+    - If we are using a server or CDN to serve the generated content, then we need to use an absolute path. Example: `/dist/` (absolute)
+
+<br> 
+
+## Webpack Dev Server
+
+Implemented this feature instead of something such as `webpack --mode development --watch` because of the features that dev server provides. For example, if you are working on a full stack project and implementing a backend API, you can configure webpack dev server so that it can make requests to your API. This makes it easier to develop and debug both your frontend and backend. 
